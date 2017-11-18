@@ -11,4 +11,10 @@ enum Genero {
   MASCULINO
   FEMENINO
 }
+
+input NuevoProfesor {
+  nombre: String!
+  genero: Genero!
+  nacionalidad: String!
+}
 `

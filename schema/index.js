@@ -11,6 +11,10 @@ const rootTypes = `
     curso(id: Int): Curso
     profesor(id: Int): Profesor
   }
+
+  type Mutation {
+    profesorAdd(profesor: NuevoProfesor):Profesor
+  }
 `
 
 const schema = makeExecutableSchema({
