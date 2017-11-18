@@ -17,4 +17,10 @@ input NuevoProfesor {
   genero: Genero!
   nacionalidad: String!
 }
+
+input ProfesorEditable {
+  nombre: String
+  genero: Genero
+  nacionalidad: String
+}
 `
