@@ -1,5 +1,7 @@
 const { makeExecutableSchema, addMockFunctionsToSchema, MockList } = require('graphql-tools')
 const casual = require('casual')
+const Curso = require('./models/Curso')
+const Profesor = require('./models/Profesor')
 
 const typeDefs = `
   type Curso {
@@ -40,60 +42,16 @@ const typeDefs = `
 
 const resolvers = {
   Query: {
-    cursos: () => {
-      return [
-      {
-        id: 1,
-        titulo: 'Curso de GraphQL',
-        descripcion: 'Aprendiendo GraphQL'
-      }, {
-        id: 2,
-        titulo: 'Curso de Python',
-        descripcion: 'Aprendiendo Python'
-      }
-      ]
-    }
-  },
-  Curso: {
-    profesor: () => {
-      return {
-        nombre: 'Pablo',
-        nacionalidad: 'Tangamandapio'
-      }
-    },
-    comentarios: () => {
-      return [
-        {
-          nombre: 'hello',
-          cuerpo: 'hwllo otra vez'
-        }
-      ]
-    }
+    cursos: () => Curso.query(),
+    profesores: () => Profesor.query(),
+    curso: (rootValue, args) => Curso.query().findById(args.id),
+    profesor: (rootValue, args) => Profesor.query().findById(args.id)
   }
 }
 
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers
-})
-
-addMockFunctionsToSchema({
-  schema,
-  mocks: {
-    Curso: () => {
-      return {
-        id: casual.uuid,
-        titulo: casual.sentence,
-        descripcion: casual.sentences(2)
-      }
-    },
-    Profesor: () => {
-      return {
-        nombre: casual.name,
-        nacionalidad: casual.country
-      }
-    }
-  }
 })
 
 module.exports = schema
