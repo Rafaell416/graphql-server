@@ -1,13 +1,12 @@
 const { makeExecutableSchema } = require('graphql-tools')
 
 const typeDefs = `
-
   type Curso {
     id: ID!
     titulo: String!
     descripcion: String!
-    profesor: String!
-    rating: Float!
+    profesor: Profesor
+    rating: Float
     comentarios: [Comentario]
   }
 
@@ -15,7 +14,7 @@ const typeDefs = `
     id: ID!
     nombre: String!
     nacionalidad: String!
-    genero: Genero #@deprecated(reason: "No matter the genero")
+    genero: Genero
     cursos: [Curso]
   }
 
@@ -33,8 +32,8 @@ const typeDefs = `
   type Query {
     cursos: [Curso]
     profesores: [Profesor]
-    curso (id: Int): Curso
-    profesor (id: Int): Profesor
+    curso(id: Int): Curso
+    profesor(id: Int): Profesor
   }
 `
 
@@ -42,24 +41,30 @@ const resolvers = {
   Query: {
     cursos: () => {
       return [
-          {
-              id: 1,
-              titulo: 'Curso de GraphQL',
-              descripcion: 'Aprendiendo GraphQL'
-          },
-          {
-              id: 2,
-              titulo: 'Curso de Python',
-              descripcion: 'Aprendiendo Python'
-          }
+      {
+        id: 1,
+        titulo: 'Curso de GraphQL',
+        descripcion: 'Aprendiendo GraphQL'
+      }, {
+        id: 2,
+        titulo: 'Curso de Python',
+        descripcion: 'Aprendiendo Python'
+      }
       ]
+    }
+  },
+  Curso: {
+    profesor: () => {
+      return {
+        nombre: 'Pablo'
+      }
     }
   }
 }
 
 const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers
+  typeDefs,
+  resolvers
 })
 
 module.exports = schema
