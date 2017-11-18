@@ -7,7 +7,10 @@
   "author": "Rafael Villarreal <rvillarreal416@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "db:migrate": "knex migrate:latest --knexfile=db/knexfile.js",
+    "db:seed": "knex seed:run --knexfile=db/knexfile.js",
+    "knex": "knex --knexfile=db/knexfile.js"
   },
   "private": false,
   "dependencies": {
@@ -16,7 +19,10 @@
     "casual": "^1.5.17",
     "express": "^4.16.2",
     "graphql": "^0.11.7",
-    "graphql-tools": "^2.7.2"
+    "graphql-tools": "^2.7.2",
+    "knex": "^0.14.0",
+    "objection": "^0.9.0",
+    "sqlite3": "^3.1.13"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
