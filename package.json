@@ -1,0 +1,10 @@
+{
+  "name": "graphql-server",
+  "version": "1.0.0",
+  "description": "a graphql server made with apollo and express",
+  "main": "index.js",
+  "repository": "git@github.com:Rafaell416/graphql-server.git",
+  "author": "Rafael Villarreal <rvillarreal416@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
