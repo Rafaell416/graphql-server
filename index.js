@@ -10,7 +10,14 @@ require('./db/setup')
 app.use(
   '/graphql',
   bodyParser.json(),
-  graphqlExpress({ schema })
+  graphqlExpress({
+    schema,
+    formatError: (error) => {
+      return {
+        mensaje: error.message
+      }
+    }
+  })
 )
 
 app.use(
