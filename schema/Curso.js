@@ -13,4 +13,10 @@ module.exports = `
     descripcion: String!
     profesor: String!
   }
+
+  input CursoEditable {
+    titulo: String
+    descripcion: String
+    profesor: String
+  }
 `

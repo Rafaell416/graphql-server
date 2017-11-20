@@ -16,6 +16,7 @@ module.exports = {
         return Profesor.query().deleteById(args.profesorId).then(()=>profesor)
       })
     },
-    cursoAdd: (_, args) => Curso.query().insert(args.curso)
+    cursoAdd: (_, args) => Curso.query().insert(args.curso),
+    cursoEdit: (_, args) => Curso.query().patchAndFetchById(args.cursoId, args.curso)
   }
 }
