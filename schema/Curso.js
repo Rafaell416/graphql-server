@@ -7,4 +7,10 @@ module.exports = `
     rating: Float
     comentarios: [Comentario]
   }
+
+  input NuevoCurso {
+    titulo: String!
+    descripcion: String!
+    profesor: String!
+  }
 `

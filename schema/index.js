@@ -14,8 +14,9 @@ const rootTypes = `
 
   type Mutation {
     profesorAdd ( profesor: NuevoProfesor ) : Profesor
-    profesorEdit ( profesorId:Int!, profesor: ProfesorEditable ) : Profesor
+    profesorEdit ( profesorId: Int!, profesor: ProfesorEditable ) : Profesor
     profesorDelete ( profesorId: Int! ): Profesor
+    cursoAdd (curso: NuevoCurso ) : Curso
   }
 `
 
