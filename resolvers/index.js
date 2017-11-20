@@ -17,6 +17,11 @@ module.exports = {
       })
     },
     cursoAdd: (_, args) => Curso.query().insert(args.curso),
-    cursoEdit: (_, args) => Curso.query().patchAndFetchById(args.cursoId, args.curso)
+    cursoEdit: (_, args) => Curso.query().patchAndFetchById(args.cursoId, args.curso),
+    cursoDelete: (_, args) => {
+      return Curso.query().findById(args.cursoId).then((curso) => {
+        return Curso.query().deleteById(args.cursoId).then(() => curso)
+      })
+    }
   }
 }

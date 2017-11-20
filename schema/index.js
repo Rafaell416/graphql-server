@@ -18,6 +18,7 @@ const rootTypes = `
     profesorDelete ( profesorId: Int! ): Profesor
     cursoAdd (curso: NuevoCurso ) : Curso
     cursoEdit ( cursoId: Int!, curso: CursoEditable ) : Curso
+    cursoDelete ( cursoId: Int! ) : Curso
   }
 `
 
