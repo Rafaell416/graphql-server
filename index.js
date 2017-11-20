@@ -14,6 +14,8 @@ app.use(
     schema,
     formatError: (error) => {
       return {
+        codigo: error.code,
+        nombre: error.name,
         mensaje: error.message
       }
     }
