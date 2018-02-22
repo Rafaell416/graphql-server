@@ -25,3 +25,24 @@ A simple graphql server to test the power of grapql
 7. `yarn start` para iniciar el servidor
 
 Following these steps, now at http://localhost:3000/graphiql you should see GraphiQL, and  http://localhost:3000/graphql is the endpoint you will use with your clients.
+
+
+### Usage
+
+Example Query
+
+``
+query {
+  cursos {
+    id
+    titulo
+    descripcion
+    profesor {
+      id
+      nombre
+      nacionalidad
+    }
+  }
+}
+
+``
