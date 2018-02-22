@@ -31,7 +31,7 @@ Following these steps, now at http://localhost:3000/graphiql you should see Grap
 
 Example Query
 
-``
+```
 query {
   cursos {
     id
@@ -45,4 +45,4 @@ query {
   }
 }
 
-``
+```
